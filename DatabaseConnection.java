@@ -11,7 +11,7 @@ public class DatabaseConnection {
 		try {
 			Class.forName(driver).newInstance();
 			conn = DriverManager.getConnection(url+dbName,userName,password);
-			System.out.println("Connected");
+			//System.out.println("Connected");
 			return conn;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -20,6 +20,7 @@ public class DatabaseConnection {
 	}
 	public static void disconnect(Connection conn) throws SQLException{
 		conn.close();
+		System.out.println("Disconnected");
 	}
 	
 }

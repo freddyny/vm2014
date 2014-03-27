@@ -27,13 +27,30 @@ public class Statements {
 		return -1;
 
 	}
-	public static void updateGoals(int hjemmeM, int borteM, int kampID) throws SQLException{
-		Connection conn = DatabaseConnection.connect();
-		PreparedStatement statement = conn.prepareStatement("");
+	public static void updateGoals(int hjemmeM, int borteM, int idKamp) throws SQLException{
+		try{
+			Connection conn = DatabaseConnection.connect();
+			PreparedStatement statement = conn.prepareStatement("UPDATE kamp SET hjemmeM = ?, borteM = ? WHERE idKamp = ?");
+			statement.setInt(1, hjemmeM);
+			statement.setInt(2, borteM);
+			statement.setInt(3, idKamp);
+			//System.out.println(idKamp);
+			statement.executeUpdate();
+			//System.out.println("DB oppdatert");
+			DatabaseConnection.disconnect(conn);
+			
+		}
+		catch (SQLException e) {
+			System.out.println("Record couldn't be added!");
+			e.printStackTrace();
+		}
+		
 	}
 	public static void main(String[] args) throws SQLException {
 		Team lag1 = new Team("Spania");
 		Team lag2 = new Team("Nederland");
-		System.out.println(getIdKamp(lag1,lag2));
+		int idKamp = getIdKamp(lag1,lag2);
+		updateGoals(2,1,idKamp);
+		
 	}
 }

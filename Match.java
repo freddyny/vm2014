@@ -14,9 +14,8 @@ public class Match {
 		this.goals1 = hjemmeM;
 		this.goals2 = borteM;
 		
-		Statements.getIdKamp(hjemmeL,borteL);
-		
-		// Ikke lukk databasen før jeg har gjort noe med den.
+		int idKamp=Statements.getIdKamp(hjemmeL,borteL);
+		Statements.updateGoals(hjemmeM, borteM, idKamp);
 		DatabaseConnection.disconnect(conn);
 	}
 	public void givePointsT1(){
