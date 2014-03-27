@@ -16,6 +16,9 @@ public class Match {
 		
 		int idKamp=Statements.getIdKamp(hjemmeL,borteL);
 		Statements.updateGoals(hjemmeM, borteM, idKamp);
+		
+		
+		
 		DatabaseConnection.disconnect(conn);
 	}
 	public void givePointsT1(){
