@@ -20,7 +20,7 @@ public class DatabaseConnection {
 	}
 	public static void disconnect(Connection conn) throws SQLException{
 		conn.close();
-		System.out.println("Disconnected");
+		//System.out.println("Disconnected");
 	}
 	
 }
