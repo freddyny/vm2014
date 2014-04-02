@@ -1,5 +1,5 @@
 package vm2014;
-
+//Kamp
 public class Match {
 	Team homeTeam, awayTeam;
 	int home, away, id;
